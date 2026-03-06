@@ -182,7 +182,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</div>
 						</div>
 				<div class="elementor-element elementor-element-76a74a5 elementor-widget__width-inherit elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="76a74a5" data-element_type="widget" data-e-type="widget" data-settings="{&quot;button_width&quot;:&quot;30&quot;,&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
-							<form class="elementor-form" method="post" name="Book a Free Care assessment" aria-label="Book a Free Care assessment" data-netlify="true" netlify-honeypot="bot-field">
+							<form class="elementor-form" method="post" name="Book a Free Care assessment" aria-label="Book a Free Care assessment" data-netlify="true">
 			<input type="hidden" name="form-name" value="Book a Free Care assessment" />
 			<input type="hidden" name="post_id" value="99"/>
 			<input type="hidden" name="form_id" value="76a74a5"/>
@@ -381,5 +381,42 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=https://harvestlifecare.com/wp-includes/js/wp-emoji-loader.min.js
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d56f74e4ab4e37e',t:'MTc3MjM1NTU3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d56f74e4ab4e37e',t:'MTc3MjM1NTU3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.elementor-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = form.querySelector('button[type="submit"]');
+      const buttonText = button.querySelector('.elementor-button-text');
+      const originalText = buttonText.textContent;
+      button.disabled = true;
+      buttonText.textContent = 'Sending...';
+      const formData = new FormData(form);
+      formData.append('form-name', form.getAttribute('name'));
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function() {
+        buttonText.textContent = 'Form submitted successfully!';
+        button.style.backgroundColor = '#2c7a3a';
+        form.reset();
+        setTimeout(function() {
+          buttonText.textContent = originalText;
+          button.style.backgroundColor = '';
+          button.disabled = false;
+        }, 3000);
+      })
+      .catch(function() {
+        buttonText.textContent = 'Error submitting. Please try again.';
+        button.disabled = false;
+        setTimeout(function() { buttonText.textContent = originalText; }, 3000);
+      });
+    });
+  }
+});
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></body>
 </html>
