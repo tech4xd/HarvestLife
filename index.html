@@ -125,7 +125,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <body class="home wp-singular page-template-default page page-id-12 wp-embed-responsive wp-theme-hello-elementor snd-default hello-elementor-default elementor-default elementor-kit-7 elementor-page elementor-page-12 elementor-page-121 e--ua-blink e--ua-chrome e--ua-webkit" data-elementor-device-mode="desktop">
 
 
-<a class="skip-link screen-reader-text" href="https://harvestlifecare.com/#content">Skip to content</a>
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
 		<header data-elementor-type="header" data-elementor-id="124" class="elementor elementor-124 elementor-location-header" data-elementor-post-type="elementor_library">
 			<div class="elementor-element elementor-element-6c5b1ed1 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="6c5b1ed1" data-element_type="container" data-e-type="container">
@@ -986,7 +986,7 @@ in 3 simple steps</h2>				</div>
 						</ul>
 						</div>
 				<div class="elementor-element elementor-element-21600d96 elementor-widget elementor-widget-text-editor" data-id="21600d96" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
-									<a href="https://harvestlifecare.com/terms" style="color:#7B7B7B"> Terms and Conditions </a>								</div>
+									<a href="#" style="color:#7B7B7B"> Terms and Conditions </a>								</div>
 					</div>
 				</div>
 					</div>
@@ -1084,4 +1084,20 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d48637b8ae9bc5b',t:'MTc3MjIwMjcxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./images/saved_resource.html"></iframe>
 
 <script src="./js/fix-swiper.js"></script>
-</body></html>
+<script id="elementor-mobile-fallback">
+(function(){
+  window.addEventListener('load', function() {
+    var toggle = document.querySelector('.elementor-menu-toggle');
+    if (!toggle) return;
+    var dropdown = toggle.nextElementSibling;
+    if (!dropdown) return;
+    dropdown.style.setProperty('--menu-height', '400px');
+    toggle.addEventListener('click', function() {
+      var isActive = toggle.classList.contains('elementor-active');
+      toggle.classList.toggle('elementor-active');
+      toggle.setAttribute('aria-expanded', isActive ? 'false' : 'true');
+      dropdown.setAttribute('aria-hidden', isActive ? 'true' : 'false');
+    });
+  });
+})();
+</script></body></html>
