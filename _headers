@@ -17,3 +17,9 @@
 
 /js/*
   Cache-Control: public, max-age=2592000
+
+/sitemap.xml
+  Content-Type: application/xml
+
+/robots.txt
+  Content-Type: text/plain
